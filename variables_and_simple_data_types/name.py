@@ -17,3 +17,4 @@ print(name.lower())
 # The lower method is especially useful when storing data. You often dont want to trust a users casing on input. So you
 # store it as lower case, and then use the appropriate case method when the time comes to display the data.
 
+ 
