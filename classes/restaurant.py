@@ -16,9 +16,14 @@ class Restaurant:
         print("We're open, come on in!")
 
 Quiznos = Restaurant("Quizno's", "subs")
+Dominos = Restaurant("Domino's", "pizza")
+Burger_King = Restaurant("Burger King", "burgers")
 
 print(Quiznos.restaurant_name)
 print(Quiznos.cuisine_type)
 
 Quiznos.describe_restaurant()
 Quiznos.resaurant_open()
+
+Dominos.describe_restaurant()
+Burger_King.describe_restaurant()
