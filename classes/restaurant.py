@@ -5,6 +5,7 @@ class Restaurant:
         """"initialize restaurant_name and cuisine_type attributes"""
         self.restaurant_name = restaurant_name
         self.cuisine_type = cuisine_type
+        self.number_served = 0 
 
     def describe_restaurant(self):
         """Describes restaurant"""
@@ -14,6 +15,16 @@ class Restaurant:
     def resaurant_open(self):
         """Indicates that the restaurant is open"""
         print("We're open, come on in!")
+
+    def set_number_served(self, customers):
+        """Updates number of customers served"""
+        self.number_served = customers
+        print(f"Number of customers served: {self.number_served}")
+
+    def increment_number_served(self, customers):
+        """Increments number of customers served"""
+        self.number_served += customers
+        print(f"Number of customers served: {self.number_served}")
 
 Quiznos = Restaurant("Quizno's", "subs")
 Dominos = Restaurant("Domino's", "pizza")
@@ -27,3 +38,12 @@ Quiznos.resaurant_open()
 
 Dominos.describe_restaurant()
 Burger_King.describe_restaurant()
+
+restaurant = Restaurant("restaurant", 'sandwhiches')
+
+print(restaurant.number_served)
+restaurant.number_served = 24
+
+print(restaurant.number_served)
+restaurant.set_number_served(24)
+restaurant.increment_number_served(20)
