@@ -39,7 +39,8 @@ class ElectricCar(Car):
     # the parent.
     def __init__(self, make, model, year) -> None:
         super().__init__(make, model, year)
-        # We can define the subclass instance as attribute of the main class 
+        # We can define the instance of another class  as attribute of the main class. This is called composition. 
+        
         self.battery = Battery()
 
     def fill_gas_tank(self):
