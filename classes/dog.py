@@ -16,7 +16,7 @@ class Dog:
     # is automatically passed in. We can also add additional parameters to hold arguments passed in unique for each instance
     # to make these unique arguments accessible throughout the other methods and properties of the class we assign them as
     # properties of self. 
-    def __init__(self, name, age) -> None:
+    def __init__(self, name, age) -> None: 
         """Initialize name and age attributes"""
         self.name = name
         self.age = age
