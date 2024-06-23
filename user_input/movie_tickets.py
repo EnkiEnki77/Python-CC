@@ -1,14 +1,15 @@
 prompt = "How old are you?: "
 
-while True:
+active = True
+while active:
     age = int(input(prompt))
-
+ 
     if age <= 3:
         print("Your ticket is free!")
-        break
+        active = False
     elif age <= 12:
         print("Your ticket is $10")
-        break
+        active = False
     else:
         print("Your ticket is $15")
-        break
+        active = False
