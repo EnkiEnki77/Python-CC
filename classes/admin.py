@@ -1,4 +1,5 @@
 from userss import User
+from priveleges import Priveleges
 
 class Admin(User):
     """Represents aspects of a User model specific to an Admin"""
@@ -7,14 +8,12 @@ class Admin(User):
         """Initializes class inheritance as well as local attributes"""
         super().__init__(first_name, last_name, user_name, age)
 
-        self.priveleges = priveleges
+        # Utilize composition to give the Admin class priveleges
+        self.priveleges = Priveleges(user_name, priveleges)
 
-    def show_priveleges(self):
-        """Lists an admins priveleges"""
-        print(f"\nThe user {self.user_name} has admin access with the following priveleges.")
-        print(*self.priveleges, sep="\n")
+   
 
 
 admin_1 = Admin('enki', 'layman', 'elayman', 25, 'can add post', 'can edit post')
 
-admin_1.show_priveleges()
+admin_1.priveleges.show_priveleges()
