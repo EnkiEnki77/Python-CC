@@ -1,7 +1,7 @@
 # You dont always have to create a whole new class from scratch if your new class essentially a special version of a class
 # you already made. For example we have the general car class, so if we wanted to make an electric car class we could simply
 # just inherit from the car class and then add on the additional attributes/methods. 
-
+""""A set of classes that represent an Electric car"""
 from car import Car
 
 # First the child class takes the parent in as an argument
@@ -23,12 +23,20 @@ class Battery:
     def get_range(self):
         """Gives info about the range of the car based on the size of the battery"""
         range = 0
-        if self.battery_size >= 40:
+        if self.battery_size == 40:
              range = 150
-        elif self.battery_size >= 65:
+        elif self.battery_size == 65:
             range = 225
-
+        # print(self.battery_size)
         print(f"This car has a range of {range}")
+
+    def upgrade_battery(self):
+        if self.battery_size < 65:
+            self.battery_size = 65
+            print(f"Battery size was upgraded to 65-kwh!")
+        else:
+            print("Battery is already at the highest tier.")
+
 
 
 class ElectricCar(Car):
@@ -50,13 +58,17 @@ class ElectricCar(Car):
 
 my_leaf = ElectricCar('nissan', 'leaf', 2024)
 
-my_leaf.odometer_reading()
-print(my_leaf.get_descriptive_name())
+# my_leaf.odometer_reading()
+# print(my_leaf.get_descriptive_name())
 
-# my_leaf.describe_battery()
+# # my_leaf.describe_battery()
 
-my_leaf.fill_gas_tank()
+# my_leaf.fill_gas_tank()
 
-my_leaf.battery.describe_battery()
+# my_leaf.battery.describe_battery()
 
+# my_leaf.battery.get_range()
+
+my_leaf.battery.get_range()
+my_leaf.battery.upgrade_battery()
 my_leaf.battery.get_range()
