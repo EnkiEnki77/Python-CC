@@ -1,0 +1,3 @@
+In Python you can use classes to model real world objects and situations.
+In Python you can utilize inheritance to make child classes that inherit the attributes and methods of their parent.
+In Python you can utilize composition to set a class as the attribute of another class it access to all the attribute classes attributes and methods.

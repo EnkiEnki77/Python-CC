@@ -19,7 +19,7 @@ def lottery_difficulty_analysis():
     # Generates lottery tickets until one matches the winning numbers
     while current_ticket != winning_lot:
         current_ticket = create_lot()
-        tickets_to_win +=1
+        tickets_to_win +=  1
         print(f"The winning lot was {winning_lot}, your ticket was {current_ticket}. {tickets_to_win} tickets have been used")
 
         if tickets_to_win == 100_000:
