@@ -20,3 +20,11 @@ print(restaurant.cuisine_type)
 print(restaurant.restaurant_name)
 restaurant.describe_restaurant()
 restaurant.restaurant_open()
+
+burger_king = Restaurant('Burger King', 'burgers')
+dairy_queen = Restaurant('Dairy Queen', 'icecream')
+little_caesars = Restaurant('Little Caesars', 'pizza')
+
+burger_king.describe_restaurant()
+dairy_queen.describe_restaurant()
+little_caesars.describe_restaurant()
