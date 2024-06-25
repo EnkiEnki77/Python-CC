@@ -4,26 +4,50 @@
 from pathlib import Path 
 import json
 
-path = Path('username.json')
-name = None
+# After your code is working you should always see if you can refactor it into more concise code such as functions
+# with specific jobs that work together.
 
-if path.exists():
-    contents = path.read_text()
-    # Converts data back to the actual type it was.
-    username = json.loads(contents)
-
-    print(f"Welcome back {contents}")
-else:
-    # Saves input from user as a string
-    username = input("What is your username?: ")
-
-    # Grabs path to username.json file
+def greet_user():
+    # Functions should preferably only be doing one task, if your functions are doing multiple you should probably 
+    # refactor even further.
+    """Greet the user by name"""
     path = Path('username.json')
-    # Converts user input string to json
-    content = json.dumps(username)
-    # Writes user input json to json file
-    path.write_text(content)
+    username = get_stored_username(path)
 
-    print(f"We'll remember you {username}")
+    if username:
+        print(f"Welcome back {username}")
+    else:
+        username = get_new_username(path)
+        print(f"We'll remember you {username}")
+
+
+def get_stored_username(path):
+    """Get stored username if available"""
+    if path.exists():
+        contents = path.read_text()
+        username = json.loads(contents)
+        return username
+    else: 
+        return None
+    
+
+def get_new_username(path):
+    """Prompts for user to enter a new username, and stores it in JSON"""
+    username = input("What is your username?: ")
+    content = json.dumps(username)
+    path.write_text(content)
+    return username
+    
+        
+        
+def __main__():
+    # If you define all your functions first and then execute the logic of your program in the main function at the bottom
+    # You dont have to worry about which order you defined all the functions
+    """Main function that runs the program"""
+    greet_user()
+
+__main__()
+
+
     
 
