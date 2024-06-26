@@ -15,10 +15,19 @@ def greet_user():
     username = get_stored_username(path)
 
     if username:
-        print(f"Welcome back {username}")
+        prompt = f"The current logged in user is {username['username']}, is this you? (yes/no)"
+        answer = input(prompt)
+
+        if answer == 'yes':
+            # print(username)
+            print(f"Welcome back {username['username']}")
+            print(f"\nHere's all the info we know about.\nFirst name: {username['first']}\nLast name: {username['last']}")
+        else:
+            username = get_new_username(path)
+            print(f"We'll remember you {username['username']}")
     else:
         username = get_new_username(path)
-        print(f"We'll remember you {username}")
+        print(f"We'll remember you {username['username']}")
 
 
 def get_stored_username(path):
@@ -33,10 +42,16 @@ def get_stored_username(path):
 
 def get_new_username(path):
     """Prompts for user to enter a new username, and stores it in JSON"""
+    userinfo = {}
     username = input("What is your username?: ")
-    content = json.dumps(username)
+    userinfo['username'] = username
+    f_name = input("What is your first name?: ")
+    userinfo['first'] = f_name
+    l_name = input("What is your last name?: ")
+    userinfo['last'] = l_name
+    content = json.dumps(userinfo)
     path.write_text(content)
-    return username
+    return userinfo
     
         
         
